@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        const courses = [
+            { name: 'HTML, CSS' },
+            { name: 'Responsive web design' },
+            { name: 'ReactJS' }
+        ]
+
+        const ul =
+            <ul style={{ margin: 0, padding: 0, listStyle: 'none' }}>
+                {courses.map((course, index) => {
+                    return <li style={{ color: '#0081ff' }} key={index}>{course.name}</li>
+                })}
+            </ul>
+
+        console.log(ul);
+
+        ReactDOM.render(ul, document.getElementById('root'))
+
+    </script>
+</body>
+
+</html>
