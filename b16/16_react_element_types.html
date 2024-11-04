@@ -40,25 +40,41 @@
         // console.log(app);
         ReactDOM.render(app, document.getElementById('app'))
         //btap
-        function PostItem() {
+        function PostItem({src, title, desc, published}) {
+            console.log(
+                src, title, desc, published
+            );
+
             return (
-                <div className='post-item' style={{width: 'calc(100% / 3 - 20px)',margin: '10px',flexShrink: 0}}>
-                    <img src="https://i.pinimg.com/236x/6b/cd/da/6bcddaab2a2dbdd11c832ac08d742626.jpg" alt="" style={{width: '100%'}} />
-                    <h2 className='post-title'>tieu de bai post</h2>
-                    <p className='post-desc'>mo ta bai post</p>
-                    <p className='post-published'>thoi gian dang bai post</p>
-                    <footer className='footer'>new footer</footer>
+                <div className='post-item' style={{ width: 'calc(100% / 3 - 20px)', margin: '10px', flexShrink: 0 }}>
+                    <img src={src} alt="" style={{ width: '100%', aspectRatio: '2/3', objectFit: 'cover' }} />
+                    <h2 className='post-title'>{title}</h2>
+                    <p className='post-desc'>{desc}</p>
+                    <p className='post-published'>{published}</p>
                 </div>
             )
         }
 
         const postList = (
-            <div className='posts-list' style={{display:'flex', flexWrap: 'wrap'}}>
-                <PostItem />
-                <PostItem />
-                <PostItem />
-                <PostItem />
-                <PostItem />
+            <div className='posts-list' style={{ display: 'flex', flexWrap: 'wrap' }}>
+                <PostItem
+                    src='https://i.pinimg.com/236x/c7/a3/98/c7a39880f04185693480d9d9c18ebf76.jpg'
+                    title='tieu de 1'
+                    desc='mo ta 1'
+                    published='thoi gian dang bai 1'
+                />
+                <PostItem
+                    src='https://i.pinimg.com/236x/0d/c8/76/0dc87634e292d1c121ebf19e8f020463.jpg'
+                    title='tieu de 2'
+                    desc='mo ta 2'
+                    published='thoi gian dang bai 2'
+                />
+                <PostItem
+                    src='https://i.pinimg.com/236x/7d/30/48/7d3048f2f1fb5bf75789e7a7b98c2171.jpg'
+                    title='tieu de 3'
+                    desc='mo ta 3'
+                    published='thoi gian dang bai 3'
+                />
             </div>
         )
 
