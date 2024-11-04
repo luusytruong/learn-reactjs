@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        function Header() {
+            return (
+                <header className='header'>new header</header>
+            )
+        }
+        class Content extends React.Component {
+            render() {
+                return (
+                    <div className='content'>new content</div>
+                )
+            }
+        }
+        function Footer() {
+            return (
+                <footer className='footer'>new footer</footer>
+            )
+        }
+        const app = (
+            <div className='wrapper'>
+                <Header />
+                <Content />
+                <Footer />
+            </div>
+        )
+        // console.log(app);
+        ReactDOM.render(app, document.getElementById('app'))
+        //btap
+        function PostItem() {
+            return (
+                <div className='post-item' style={{width: 'calc(100% / 3 - 20px)',margin: '10px',flexShrink: 0}}>
+                    <img src="https://i.pinimg.com/236x/6b/cd/da/6bcddaab2a2dbdd11c832ac08d742626.jpg" alt="" style={{width: '100%'}} />
+                    <h2 className='post-title'>tieu de bai post</h2>
+                    <p className='post-desc'>mo ta bai post</p>
+                    <p className='post-published'>thoi gian dang bai post</p>
+                    <footer className='footer'>new footer</footer>
+                </div>
+            )
+        }
+
+        const postList = (
+            <div className='posts-list' style={{display:'flex', flexWrap: 'wrap'}}>
+                <PostItem />
+                <PostItem />
+                <PostItem />
+                <PostItem />
+                <PostItem />
+            </div>
+        )
+
+        // console.log(PostItem);
+        ReactDOM.render(postList, document.getElementById('app'))
+    </script>
+</body>
+
+</html>

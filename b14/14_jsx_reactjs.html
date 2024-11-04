@@ -21,9 +21,9 @@
         ]
 
         const ul =
-            <ul style={{ margin: 0, padding: 0, listStyle: 'none' }}>
+            <ul>
                 {courses.map((course, index) => {
-                    return <li style={{ color: '#0081ff' }} key={index}>{course.name}</li>
+                    return <li key={index}>{course.name}</li>
                 })}
             </ul>
 
