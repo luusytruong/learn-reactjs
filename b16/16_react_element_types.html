@@ -40,11 +40,7 @@
         // console.log(app);
         ReactDOM.render(app, document.getElementById('app'))
         //btap
-        function PostItem({src, title, desc, published}) {
-            console.log(
-                src, title, desc, published
-            );
-
+        function PostItem({ src, title, desc, published }) {
             return (
                 <div className='post-item' style={{ width: 'calc(100% / 3 - 20px)', margin: '10px', flexShrink: 0 }}>
                     <img src={src} alt="" style={{ width: '100%', aspectRatio: '2/3', objectFit: 'cover' }} />
@@ -80,6 +76,104 @@
 
         // console.log(PostItem);
         ReactDOM.render(postList, document.getElementById('app'))
+        //btap
+        const courses = [
+            {
+                "id": 65,
+                "user_id": 1,
+                "title": "Tổng hợp các sản phẩm của học viên tại F8 👏👏",
+                "slug": "tong-hop-cac-san-pham-cua-hoc-vien-tai-f8",
+                "description": null,
+                "meta_title": "Tổng hợp các sản phẩm của học viên tại F8",
+                "meta_description": "Bài viết này nhằm tổng hợp lại các dự án mà học viên F8 đã hoàn thành và chia sẻ trên nhóm Học lập trình web F8. Các dự án dưới...",
+                "image": "blog_posts/65/6139fe28a9844.png",
+                "thumbnail": "blog_posts/65/6139fe28a9844.png",
+                "min_read": 6,
+                "published_at": "2021-09-09 17:46:12",
+                "is_approved": true,
+                "created_at": "2021-09-09T09:35:13.000000Z",
+                "reactions_count": 1075,
+                "image_url": "https://files.fullstack.edu.vn/f8-prod/blog_posts/65/6139fe28a9844.png",
+                "thumbnail_url": "https://files.fullstack.edu.vn/f8-prod/blog_posts/65/6139fe28a9844.png",
+                "is_bookmark": false,
+                "is_published": true
+            },
+            {
+                "id": 279,
+                "user_id": 1,
+                "title": "[Phần 1] Tạo dự án ReactJS với Webpack và Babel",
+                "slug": "phan-1-tao-du-an-reactjs-voi-webpack-va-babel",
+                "description": null,
+                "meta_title": "[Phần 1] Tạo dự án ReactJS với Webpack và Babel",
+                "meta_description": "Tự tạo dự án ReactJS với webpack và babel nhằm mục đích giúp chúng ta hiểu rõ hơn về về cách create-react-app đã tạo ra dự án ReactJS như thế nào và quan...",
+                "image": "blog_posts/279/6153f692d366e.jpg",
+                "thumbnail": "blog_posts/279/6153f6932dcea.jpg",
+                "min_read": 12,
+                "published_at": "2021-09-29 12:16:03",
+                "is_approved": true,
+                "created_at": "2021-09-13T15:14:19.000000Z",
+                "reactions_count": 803,
+                "image_url": "https://files.fullstack.edu.vn/f8-prod/blog_posts/279/6153f692d366e.jpg",
+                "thumbnail_url": "https://files.fullstack.edu.vn/f8-prod/blog_posts/279/6153f6932dcea.jpg",
+                "is_bookmark": false,
+                "is_published": true
+            },
+            {
+                "id": 677,
+                "user_id": 18159,
+                "title": "Cách đưa code lên GitHub và tạo GitHub Pages",
+                "slug": "cach-dua-code-len-github-va-tao-github-pages",
+                "description": null,
+                "meta_title": "Cách đưa code lên GitHub và tạo GitHub Pages",
+                "meta_description": "Ở bài viết này, mình sẽ hướng dẫn cách để đưa code lên trên Github và tạo Github Pages để xem được trang web mà các bạn đưa lên  như thế nào.",
+                "image": "blog_posts/677/615436b218d0a.png",
+                "thumbnail": "blog_posts/677/615436b284513.png",
+                "min_read": 4,
+                "published_at": "2021-09-29 16:49:38",
+                "is_approved": true,
+                "created_at": "2021-09-29T08:20:27.000000Z",
+                "reactions_count": 632,
+                "image_url": "https://files.fullstack.edu.vn/f8-prod/blog_posts/677/615436b218d0a.png",
+                "thumbnail_url": "https://files.fullstack.edu.vn/f8-prod/blog_posts/677/615436b284513.png",
+                "is_bookmark": false,
+                "is_published": true
+            }
+        ]
+        //
+        const CourseItem = ({ image_url, title, description, reactions_count }) => {
+            const handleTitleClick = ()=>{
+                // Notification.requestPermission().then(permission=>{
+                //     if (permission === 'granted') {
+                //         new Notification(title)
+                //     }
+                // })
+                alert(title)
+            }
+            return (
+                <div className='course-item'>
+                    <img src={image_url} alt="" />
+                    <h1 className='course-title' onClick={handleTitleClick}>
+                        {title}
+                    </h1>
+                    <p className='course-desc'>{description}</p>
+                    <p className='course-reaction'>{reactions_count}</p>
+                </div>
+            )
+        }
+        //
+        const CourseItemRender = courses.map((course, index) => {
+            return (
+                <CourseItem
+                    key={course.id || index}
+                    image_url={course.image_url}
+                    title={course.title}
+                    description={course.meta_description}
+                    reactions_count={course.reactions_count}
+                />
+            )
+        })
+        //
+        ReactDOM.render(CourseItemRender, document.getElementById('app'))
     </script>
 </body>
 
